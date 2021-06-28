@@ -12,7 +12,7 @@ public class LongestSubStringWithoutRepeatingCharacters {
         for (int end = 0; end < n; end++) {
             char currChar = str.charAt(end);
             if (m.containsKey(currChar)) {
-                start = m.get(currChar) + 1;
+                start = Math.max(start, m.get(currChar) + 1);
             }
             m.put(currChar, end);
             maxLen = Math.max(end - start + 1, maxLen);
@@ -21,6 +21,6 @@ public class LongestSubStringWithoutRepeatingCharacters {
     }
 
     public static void main(String[] args) {
-
+        System.out.println(findLength("abba"));
     }
 }
